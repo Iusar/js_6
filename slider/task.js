@@ -16,21 +16,8 @@ function changeActiveItem(listingDirection) {
 	let newIndex = oldIndex + listingDirection;
 		newIndex = newIndex > itemsList.length - 1 ? 0 : newIndex;
 	    newIndex = newIndex < 0  ? itemsList.length - 1 : newIndex;
-	// itemsList[newIndex(itemsList.length - 1, oldIndex, listingDirection)].className = "slider__item slider__item_active"
+
 	itemsList[newIndex].className = "slider__item slider__item_active"
 	itemsList[oldIndex].className = "slider__item"
 	}
 
-
-
-// function newIndex (maxIndex, oldIndex, listingDirection)  {
-// 	if (oldIndex === maxIndex &&  listingDirection === 1) {
-// 		return 0
-// 	}
-// 	else if(oldIndex === 0 && listingDirection === -1) {
-// 		return maxIndex
-// 	}
-// 	else {
-// 		return oldIndex + listingDirection
-// 	}
-// }
