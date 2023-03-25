@@ -1,6 +1,6 @@
 let nextButt = document.querySelector(".slider__arrow_next");
 let prevButt = document.querySelector(".slider__arrow_prev");
-const itemsList =(document.getElementsByClassName("slider__item"))
+const itemsList =document.getElementsByClassName("slider__item")
 
 nextButt.addEventListener('click', () => {
 	changeActiveItem(1)
@@ -11,20 +11,26 @@ prevButt.addEventListener('click', () => {
 });
 
 
-function changeActiveItem(direction) {
-	for (let item = 0; itemsList.length >= item; item++) {
-		if (itemsList[item].className == "slider__item slider__item_active") {
-			console.log(itemsList[item].className, item, newIndex(itemsList.length, item, direction))
-			itemsList[newIndex(itemsList.length - 1, item, direction)].className = "slider__item slider__item_active"
-			itemsList[item].className = "slider__item"
-			break
-		}
+function changeActiveItem(listingDirection) {
+	let oldIndex = Array.from(itemsList).findIndex(currentItem => currentItem.className == "slider__item slider__item_active");
+	let newIndex = oldIndex + listingDirection;
+		newIndex = newIndex > itemsList.length - 1 ? 0 : newIndex;
+	    newIndex = newIndex < 0  ? itemsList.length - 1 : newIndex;
+	// itemsList[newIndex(itemsList.length - 1, oldIndex, listingDirection)].className = "slider__item slider__item_active"
+	itemsList[newIndex].className = "slider__item slider__item_active"
+	itemsList[oldIndex].className = "slider__item"
 	}
-}
 
 
-function newIndex (maxIndex, oldIndex, direction)  {
-	if (oldIndex === maxIndex &&  direction === 1) {return 0}
-	else if(oldIndex === 0 && direction === -1) {return maxIndex}
-	else {return oldIndex + direction}
-}
+
+// function newIndex (maxIndex, oldIndex, listingDirection)  {
+// 	if (oldIndex === maxIndex &&  listingDirection === 1) {
+// 		return 0
+// 	}
+// 	else if(oldIndex === 0 && listingDirection === -1) {
+// 		return maxIndex
+// 	}
+// 	else {
+// 		return oldIndex + listingDirection
+// 	}
+// }
