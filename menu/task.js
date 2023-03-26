@@ -5,7 +5,7 @@ menuItems.forEach(currentItem => {
 		const parentMenu = currentItem.parentElement;
 
 		if (parentMenu.querySelector('.menu_sub') === null) {
-			return false
+			return true
 		}
 		if (parentMenu.querySelector('.menu_sub').className === 'menu menu_sub') {
 			parentMenu.querySelector('.menu_sub').className = 'menu menu_sub menu_active';
@@ -17,7 +17,5 @@ menuItems.forEach(currentItem => {
 		}
 	}
 });
-
-
 
 

@@ -1,21 +1,21 @@
-let id_modal_main = document.querySelector('#modal_main');
-let cl_show_success = document.querySelector('.show-success');
-let id_modal_success = document.querySelector('#modal_success');
+let idModalMain = document.querySelector('#modal_main');
+let clShowSuccess = document.querySelector('.show-success');
+let idModalSuccess = document.querySelector('#modal_success');
 
 
-id_modal_main.className = 'modal modal_active';
+idModalMain.className = 'modal modal_active';
 
 
-cl_show_success.onclick = function () {
-	id_modal_main.className = 'modal'
-	id_modal_success.className = 'modal modal_active';
+clShowSuccess.onclick = function () {
+	idModalMain.className = 'modal'
+	idModalSuccess.className = 'modal modal_active';
 }
 
-id_modal_main.onclick = function () {
-	id_modal_main.className = 'modal'
+idModalMain.onclick = function () {
+	idModalMain.className = 'modal'
 }
 
-id_modal_success.onclick = function () {
-	id_modal_success.className = 'modal';
-	id_modal_main.className = 'modal';
+idModalSuccess.onclick = function () {
+	idModalSuccess.className = 'modal';
+	idModalMain.className = 'modal';
 }
