@@ -1,16 +1,23 @@
 const menuItems = Array.from(document.querySelectorAll('.menu__link'));
 
-for (let item of menuItems) {
-	item.onclick = function () {
-		const parent = item.parentElement;
-		if (parent.querySelector('.menu_sub').className === 'menu menu_sub') {
-			parent.querySelector('.menu_sub').className = 'menu menu_sub menu_active';
-		} else {
-			parent.querySelector('.menu_sub').className = 'menu menu_sub'
-		}
+menuItems.forEach(currentItem => {
+	currentItem.onclick = function () {
+		const parentMenu = currentItem.parentElement;
 
-		if (item.closest('.menu_main')) {
+		if (parentMenu.querySelector('.menu_sub') === null) {
+			return false
+		}
+		if (parentMenu.querySelector('.menu_sub').className === 'menu menu_sub') {
+			parentMenu.querySelector('.menu_sub').className = 'menu menu_sub menu_active';
+		} else {
+			parentMenu.querySelector('.menu_sub').className = 'menu menu_sub'
+		}
+		if (parentMenu.closest('.menu_main')) {
 			return false
 		}
 	}
-}
+});
+
+
+
+
